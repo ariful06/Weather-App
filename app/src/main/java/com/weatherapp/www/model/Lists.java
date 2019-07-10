@@ -7,7 +7,7 @@ public class Lists {
 
     @SerializedName("id")
     @Expose
-    private Integer id;
+    private double id;
     @SerializedName("name")
     @Expose
     private String name;
@@ -19,7 +19,7 @@ public class Lists {
     private Main main;
     @SerializedName("dt")
     @Expose
-    private Integer dt;
+    private double dt;
     @SerializedName("wind")
     @Expose
     private Wind wind;
@@ -39,11 +39,11 @@ public class Lists {
     @Expose
     private java.util.List<Weather> weather = null;
 
-    public Integer getId() {
+    public double getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(double id) {
         this.id = id;
     }
 
@@ -71,11 +71,11 @@ public class Lists {
         this.main = main;
     }
 
-    public Integer getDt() {
+    public double getDt() {
         return dt;
     }
 
-    public void setDt(Integer dt) {
+    public void setDt(double dt) {
         this.dt = dt;
     }
 

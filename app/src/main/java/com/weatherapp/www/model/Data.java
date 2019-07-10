@@ -10,10 +10,10 @@ public class Data {
     private String message;
     @SerializedName("cod")
     @Expose
-    private String cod;
+    private int cod;
     @SerializedName("count")
     @Expose
-    private Integer count;
+    private int count;
     @SerializedName("list")
     @Expose
     private List<Lists> list = null;
@@ -26,19 +26,19 @@ public class Data {
         this.message = message;
     }
 
-    public String getCod() {
+    public int getCod() {
         return cod;
     }
 
-    public void setCod(String cod) {
+    public void setCod(int cod) {
         this.cod = cod;
     }
 
-    public Integer getCount() {
+    public int getCount() {
         return count;
     }
 
-    public void setCount(Integer count) {
+    public void setCount(int count) {
         this.count = count;
     }
 

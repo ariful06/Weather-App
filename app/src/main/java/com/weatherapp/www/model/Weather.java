@@ -7,7 +7,7 @@ public class Weather {
 
     @SerializedName("id")
     @Expose
-    private Integer id;
+    private double id;
     @SerializedName("main")
     @Expose
     private String main;
@@ -18,11 +18,11 @@ public class Weather {
     @Expose
     private String icon;
 
-    public Integer getId() {
+    public double getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(double id) {
         this.id = id;
     }
 
