@@ -1,6 +1,7 @@
 package com.weatherapp.www.repositories;
 
 import android.app.Application;
+import android.util.Log;
 import android.widget.Toast;
 
 import androidx.lifecycle.MutableLiveData;
@@ -21,6 +22,7 @@ import io.reactivex.schedulers.Schedulers;
 
 public class WeatherRepo {
 
+    private static final String TAG = "WeatherRepo";
     private MutableLiveData<Data> mutableLiveData;
     private Application application;
     private Data dataList;
@@ -50,13 +52,11 @@ public class WeatherRepo {
                     }
                     @Override
                     public void onError(Throwable e) {
-
-                        Toast.makeText(application, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
+                        Log.d(TAG, "onError: "+e.getMessage());
                     }
                     @Override
                     public void onComplete() {
 
-                        Toast.makeText(application, "", Toast.LENGTH_SHORT).show();
                     }
                 });
 

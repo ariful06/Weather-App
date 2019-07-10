@@ -17,20 +17,13 @@
             android:orientation="vertical">
             <TextView
                 android:id="@+id/text_view_city_name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="8dp"
-                android:text="Dhaka"
-                android:textColor="@android:color/black"
+                style="@style/TextViewItem"
+                android:text="@string/dhaka"
                 android:textAppearance="?android:textAppearanceLarge" />
             <TextView
                 android:id="@+id/text_view_weather_cloud"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/text_view_city_name"
-                android:padding="10dp"
-                android:text="Cloud"
-                android:textColor="@android:color/black"
+                style="@style/TextViewItem"
+                android:text="@string/cloud"
                 android:textAppearance="?android:textAppearanceSmall" />
         </LinearLayout>
         <TextView
@@ -39,8 +32,7 @@
             android:layout_height="match_parent"
             android:layout_weight="3"
             android:gravity="center"
-            android:textSize="36sp"
-            android:text="23*"
+            android:textSize="@dimen/text_size_36sp"
             android:textColor="@android:color/black"/>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

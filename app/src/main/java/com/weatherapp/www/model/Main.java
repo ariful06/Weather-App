@@ -7,7 +7,7 @@ public class Main {
 
     @SerializedName("temp")
     @Expose
-    private Double temp;
+    private double temp;
     @SerializedName("pressure")
     @Expose
     private double pressure;
@@ -27,11 +27,11 @@ public class Main {
     @Expose
     private Double grndLevel;
 
-    public Double getTemp() {
+    public double getTemp() {
         return temp;
     }
 
-    public void setTemp(Double temp) {
+    public void setTemp(double temp) {
         this.temp = temp;
     }
 

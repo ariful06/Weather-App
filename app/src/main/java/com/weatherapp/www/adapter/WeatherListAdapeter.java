@@ -9,6 +9,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.weatherapp.www.R;
 import com.weatherapp.www.model.Lists;
+import com.weatherapp.www.model.Main;
+
 import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -34,7 +36,11 @@ public class WeatherListAdapeter extends RecyclerView.Adapter<WeatherListAdapete
 
     @Override
     public void onBindViewHolder(@NonNull WeatherViewHolder holder, int position) {
-        holder.tvCityName.setText(dataList.get(position).getName());
+        int temp = (int) dataList.get(position).getMain().getTemp();
+        String city = dataList.get(position).getName();
+        holder.tvCityName.setText(city);
+        holder.tvTempetature.setText(((temp - 273) +"°" ));
+        holder.tvWeatherReport.setText((dataList.get(position).getWeather().get(0).getMain()));
     }
 
     @Override
