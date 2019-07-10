@@ -9,7 +9,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.weatherapp.www.R;
 import com.weatherapp.www.model.Lists;
-import com.weatherapp.www.model.Main;
 
 import java.util.List;
 import butterknife.BindView;
@@ -17,14 +16,12 @@ import butterknife.ButterKnife;
 
 public class WeatherListAdapeter extends RecyclerView.Adapter<WeatherListAdapeter.WeatherViewHolder> {
 
-
-
     List<Lists> dataList;
-    Context context;
+    private OnItemClickListener onItemClickListener;
 
     public WeatherListAdapeter(Context context, List<Lists> dataList) {
         this.dataList = dataList;
-        this.context = context;
+        onItemClickListener = (OnItemClickListener) context;
     }
 
     @NonNull
@@ -39,8 +36,9 @@ public class WeatherListAdapeter extends RecyclerView.Adapter<WeatherListAdapete
         int temp = (int) dataList.get(position).getMain().getTemp();
         String city = dataList.get(position).getName();
         holder.tvCityName.setText(city);
-        holder.tvTempetature.setText(((temp - 273) +"°" ));
+        holder.tvTemperature.setText(((temp - 273) +"°" ));
         holder.tvWeatherReport.setText((dataList.get(position).getWeather().get(0).getMain()));
+        holder.itemView.setOnClickListener(view -> onItemClickListener.onItemClick(position,dataList.get(position)));
     }
 
     @Override
@@ -52,7 +50,7 @@ public class WeatherListAdapeter extends RecyclerView.Adapter<WeatherListAdapete
         @BindView(R.id.text_view_city_name)
         TextView tvCityName;
         @BindView(R.id.text_view_temperature)
-        TextView tvTempetature;
+        TextView tvTemperature;
         @BindView(R.id.text_view_weather_cloud)
         TextView tvWeatherReport;
         public WeatherViewHolder(@NonNull View itemView) {
@@ -61,4 +59,7 @@ public class WeatherListAdapeter extends RecyclerView.Adapter<WeatherListAdapete
         }
     }
 
+    public interface OnItemClickListener{
+        void onItemClick(int position,Lists list);
+    }
 }

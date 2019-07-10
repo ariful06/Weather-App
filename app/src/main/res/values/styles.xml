@@ -11,8 +11,14 @@
     <style name="TextViewItem">
         <item name="android:textColor">@android:color/black</item>
         <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
         <item name="android:padding">@dimen/padding_8dp</item>
+    </style>
+    <style name="TextViewMapActivity">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAppearance">?android:textAppearanceMedium</item>
+        <item name="android:padding">@dimen/padding_4dp</item>
     </style>
 
 </resources>

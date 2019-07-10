@@ -11,18 +11,15 @@ import com.weatherapp.www.model.Main;
 
 public class SplashActivity extends AppCompatActivity {
     private static final int SPLASH_SCREEN_TIME_OUT = 2000;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-              Intent intent = new Intent(SplashActivity.this, MainActivity.class);
-              startActivity(intent);
-                finish();
-            }
+        if (getSupportActionBar() != null) getSupportActionBar().hide();
+        new Handler().postDelayed(() -> {
+            startActivity(MainActivity.moveToMainActivity(SplashActivity.this));
+            finish();
         }, SPLASH_SCREEN_TIME_OUT);
     }
 }
