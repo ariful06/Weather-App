@@ -11,6 +11,6 @@ public class Constants {
     public static final String RAIN = "Rain";
     public static final String HAZE = "Haze";
     public static final String CLOUD = "Cloud";
-    public static final String LOCATION_UPDATE= "location_update";
+
 
 }

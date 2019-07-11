@@ -4,8 +4,10 @@ import android.app.Application;
 import android.util.Log;
 import android.widget.Toast;
 
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
+import com.weatherapp.www.model.CurrentInfo;
 import com.weatherapp.www.model.Data;
 import com.weatherapp.www.model.Lists;
 import com.weatherapp.www.network.ApiClient;
@@ -27,6 +29,9 @@ public class WeatherRepo {
     private Application application;
     private Data dataList;
     private List<Lists> listOfData;
+    private CurrentInfo info;
+
+    private MutableLiveData<CurrentInfo> currentInfoMutableLiveData;
 
     public WeatherRepo(Application application) {
         this.application = application;
@@ -61,5 +66,38 @@ public class WeatherRepo {
                 });
 
         return mutableLiveData;
+    }
+
+    public LiveData<CurrentInfo> getCurrentTemperature(double lat, double lon) {
+        currentInfoMutableLiveData = new MutableLiveData<>();
+        ApiInterface apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
+        Observable<CurrentInfo> observable = apiInterface.getCurrentTemperature(lat,lon,Constants.API_KEY);
+        observable.subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<CurrentInfo>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onNext(CurrentInfo currentInfo) {
+                        if (currentInfo != null) {
+                            info = currentInfo;
+                            currentInfoMutableLiveData.postValue(info);
+                        }
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
+        return currentInfoMutableLiveData;
     }
 }

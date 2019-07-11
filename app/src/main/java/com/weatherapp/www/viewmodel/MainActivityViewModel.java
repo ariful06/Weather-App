@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
+import com.weatherapp.www.model.CurrentInfo;
 import com.weatherapp.www.model.Data;
 import com.weatherapp.www.repositories.WeatherRepo;
 
@@ -19,5 +20,10 @@ public class MainActivityViewModel  extends AndroidViewModel {
     public LiveData<Data> getAllWeatherReport() {
         return weatherRepo.getMutableLiveData();
     }
+
+    public LiveData<CurrentInfo> getCurrentTemperature(double lat, double lng) {
+        return weatherRepo.getCurrentTemperature(lat,lng);
+    }
+
 
 }

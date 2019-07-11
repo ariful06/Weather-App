@@ -2,6 +2,8 @@
     <string name="app_name">Weather App</string>
     <string name="dhaka">Dhaka</string>
     <string name="cloud">Cloud</string>
+    <string name="btn_ok">OK</string>
+    <string name="btn_cancel">Cancel</string>
     <string name="api_key" translatable="false">
         AIzaSyA2ybITPNIsI9RnXKY_PPgmZeW_bxfUqIo
     </string>
