@@ -128,7 +128,6 @@ public class MainActivity extends AppCompatActivity implements WeatherListAdapet
             }
         }
     }
-
     public boolean runtimePermission() {
 
         if (Build.VERSION.SDK_INT >= 23 && ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
